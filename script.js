@@ -11,7 +11,7 @@ const perguntas = [
             "Juan Manuel Fangio",
             "Giuseppe Farina"
         ],
-        correta: 1 // A primeira alternativa é a correta
+        correta: 1 // Giuseppe Farina is the correct answer
     },
     {
         enunciado: "Em que ano a Fórmula 1 introduziu a regra do DRS (Drag Reduction System)?",
@@ -19,23 +19,23 @@ const perguntas = [
             "2009",
             "2011"
         ],
-        correta: 1 // A segunda alternativa é a correta
+        correta: 1 // 2011 is the correct answer
     },
     {
         enunciado: "Qual equipe detém o recorde de mais vitórias consecutivas em uma temporada?",
         alternativas: [
-            " Mercedes",
+            "Mercedes",
             "Red Bull Racing"
         ],
-        correta: 0
+        correta: 0 // Mercedes is the correct answer
     },
     {
         enunciado: "Quem é o único piloto a ter vencido corridas com cinco equipes diferentes?",
         alternativas: [
-            " Lewis Hamilton",
+            "Lewis Hamilton",
             "Fernando Alonso"
         ],
-        correta: 1
+        correta: 1 // Fernando Alonso is the correct answer
     },
     {
         enunciado: "Qual é o nome da pista que sediou o primeiro Grande Prêmio de Fórmula 1?",
@@ -43,60 +43,18 @@ const perguntas = [
             "Silverstone",
             "Monza"
         ],
-        correta: 0
+        correta: 0 // Silverstone is the correct answer
     }
 ];
 
 let atual = 0;
 let perguntaAtual;
-let pontuacao = 0; // Inicie a pontuação em 0
+let pontuacao = 0;
 
 function mostraPergunta() {
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.innerHTML = ''; // Limpa as alternativas anteriores
-
-    // Cria botões para as alternativas
+    caixaAlternativas.innerHTML = '';
+    
     perguntaAtual.alternativas.forEach((alternativa, index) => {
-        const botao = document.createElement('button');
-        botao.textContent = alternativa;
-        botao.addEventListener('click', () => verificaResposta(index));
-        caixaAlternativas.appendChild(botao);
-    });
-}
-
-function verificaResposta(selecionada) {
-    if (selecionada === perguntaAtual.correta) {
-        pontuacao++;
-    }
-    atual++;
-    if (atual < perguntas.length) {
-        mostraPergunta();
-    } else {
-        mostraResultado();
-    }
-}
-
-function mostraResultado() {
-    caixaPrincipal.style.display = 'none'; // Esconde a caixa de perguntas
-    caixaResultado.style.display = 'block'; // Mostra a caixa de resultado
-    setTimeout(() => caixaResultado.classList.add('mostrar'), 10); // Adiciona classe para animação
-    textoResultado.textContent = `Você acertou ${pontuacao} de ${perguntas.length} perguntas!`;
-
-    const botaoReiniciar = document.createElement('button');
-    botaoReiniciar.textContent = 'Reiniciar';
-    botaoReiniciar.addEventListener('click', () => {
-        atual = 0;
-        pontuacao = 0;
-        caixaResultado.classList.remove('mostrar');
-        caixaResultado.style.display = 'none';
-        caixaPrincipal.style.display = 'block';
-        mostraPergunta();
-    });
-    caixaResultado.innerHTML = ''; // Limpa conteúdo anterior
-    caixaResultado.appendChild(textoResultado);
-    caixaResultado.appendChild(botaoReiniciar);
-}
-
-// Inicializa a primeira pergunta
-mostraPergunta();
+        const
