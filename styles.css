@@ -1,47 +1,29 @@
 /* Definição de variáveis CSS para as cores usadas no design */
 :root {
-    /* cor do fundo */
-    --cor-fundo: #ffffff;
-        /* cores da caixa principal */
-    --cor-principal: #0B0D20;
-    /* cores da caixa secundaria */
-    --cor-secundaria: #212333;
-        /* cor texto quest/Buttom */
-    --cor-destaque: #ffd700;
-        /* cor do texto pergunta */
-    --cor-texto: #fafafa;
-        /* cor fadebuttom */
-    --cor-fadeButtom: #e30d6d;
+    --cor-fundo: #090029;
+    /*cor do fundo*/
+    --cor-principal: #ffffff;
+    /*cores da caixa principal*/
+    --cor-secundaria: #ffffff;
+    /*cores da caixa secundaria*/
+    --cor-destaque: #ff0000;
+    /*cor texto quest/Buttom*/
+    --cor-texto: #000000;
+    /*cor do texto pergunta*/
+    --cor-fadeButtom: #cacaca;
+    /*cor fadebuttom*/
 }
 
 /* Configuração do estilo do corpo da página */
 body {
-    position: relative;
-    overflow: hidden;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: var(--cor-fundo);
-        color: var(--cor-texto);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-}
-
-/* Adiciona uma camada de imagem de fundo com blur */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Caminho da imagem */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(2px);
-    z-index: -1;
 }
 
 /* Estilo da caixa principal */
@@ -69,23 +51,20 @@ button {
     color: var(--cor-principal);
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s;
     border-radius: 10px;
 }
 
+/* Estilo ao passar o mouse sobre o botão */
 button:hover {
     background-color: var(--cor-fadeButtom);
     color: var(--cor-texto);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-   
-    button:focus {
-        outline: 2px dashed var(--cor-destaque);
 }
 
 /* Estilo para a caixa de resultado */
 .caixa-resultado {
     display: none;
+    /* Inicialmente oculta */
     text-align: center;
     padding: 20px;
     background-color: var(--cor-secundaria);
@@ -94,6 +73,7 @@ button:hover {
     border-radius: 8px;
 }
 
+/* Classe para exibir a caixa de resultado */
 .caixa-resultado.mostrar {
     opacity: 1;
 }
@@ -102,19 +82,3 @@ button:hover {
 .texto-resultado {
     font-size: 1.2rem;
     color: var(--cor-texto);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-#video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
