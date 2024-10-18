@@ -55,6 +55,5 @@ function mostraPergunta() {
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.innerHTML = '';
-    
-    perguntaAtual.alternativas.forEach((alternativa, index) => {
-        const
+}
+    perguntaAtual.alternativas.forEach((alternativa, index) =>
